@@ -1,5 +1,5 @@
 ; ***********************************
-; My very first AVR Assembler Program
+; Switch number display
 ; ***********************************
 .include    "m32adef.inc" ; The ATMEGA32A Microcontroller
 

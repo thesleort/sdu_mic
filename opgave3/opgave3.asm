@@ -1,5 +1,5 @@
 ; ***********************************
-; My very first AVR Assembler Program
+; 4 bit adder
 ; ***********************************
 .include    "m32adef.inc" ; The ATMEGA32A Microcontroller
 
