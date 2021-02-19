@@ -70,50 +70,50 @@ SHIFTLOOP:  DEC   R18
             CPI   R16,0xa
             BRGE  SEG_E
   
-SEG_0:      LDI   R19,dis_0
-            OUT   PORTB,R19
-            JMP  START
+SEG_0:      LDI   R18,dis_0
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_1:      LDI   R19,dis_1
-            OUT   PORTB,R19
-            JMP  START
+SEG_1:      LDI   R18,dis_1
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_2:      LDI   R19,dis_2
-            OUT   PORTB,R19
-            JMP  START
+SEG_2:      LDI   R18,dis_2
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_3:      LDI   R19,dis_3
-            OUT   PORTB,R19
-            JMP  START
+SEG_3:      LDI   R18,dis_3
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_4:      LDI   R19,dis_4
-            OUT   PORTB,R19
-            JMP  START
+SEG_4:      LDI   R18,dis_4
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_5:      LDI   R19,dis_5
-            OUT   PORTB,R19
-            JMP  START
+SEG_5:      LDI   R18,dis_5
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_6:      LDI   R19,dis_6
-            OUT   PORTB,R19
-            JMP  START
+SEG_6:      LDI   R18,dis_6
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_7:      LDI   R19,dis_7
-            OUT   PORTB,R19
-            JMP  START
+SEG_7:      LDI   R18,dis_7
+            OUT   PORTB,R18
+            RJMP  START
           
-SEG_8:      LDI   R19,dis_8
-            OUT   PORTB,R19
-            JMP  START
+SEG_8:      LDI   R18,dis_8
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_9:      LDI   R19,dis_9
-            OUT   PORTB,R19
-            JMP  START
+SEG_9:      LDI   R18,dis_9
+            OUT   PORTB,R18
+            RJMP  START
 
-SEG_E:      LDI   R19,dis_error
-            OUT   PORTB,R19
-            JMP  START
+SEG_E:      LDI   R18,dis_error
+            OUT   PORTB,R18
+            RJMP  START
 
 SEG_DBG:    OUT   PORTB,R16  
-            JMP  START
+            RJMP  START
             
