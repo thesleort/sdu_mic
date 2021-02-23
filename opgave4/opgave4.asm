@@ -150,6 +150,7 @@ SEG_9:      LDI   R18,dis_9
 
 ; Display error on segment display
 SEG_E:      LDI   R18,dis_error
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
