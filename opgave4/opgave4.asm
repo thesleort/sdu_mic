@@ -17,6 +17,9 @@
 .SET  dis_off   = 0b11111111
 .SET  dis_on    = 0b00000000
 
+.SET  dis_dot   = 0b01111111
+.SET  dis_dot_neg = 0b10000000
+
 .SET  leftbits  = 0b11110000
 .SET  rightbits = 0b00001111
 
@@ -87,51 +90,61 @@ CHECKSUM:   CPI   R16,0x1               ; Check if sum is 1
   
 ; Display 0 on segment display
 SEG_0:      LDI   R18,dis_0
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
 ; Display 1 on segment display
 SEG_1:      LDI   R18,dis_1
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
 ; Display 2 on segment display
 SEG_2:      LDI   R18,dis_2
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
 ; Display 3 on segment display
 SEG_3:      LDI   R18,dis_3
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
 ; Display 4 on segment display
 SEG_4:      LDI   R18,dis_4
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
 ; Display 5 on segment display
 SEG_5:      LDI   R18,dis_5
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
 ; Display 6 on segment display
 SEG_6:      LDI   R18,dis_6
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
 ; Display 7 on segment display
 SEG_7:      LDI   R18,dis_7
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
           
 ; Display 8 on segment display
 SEG_8:      LDI   R18,dis_8
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
 ; Display 9 on segment display
 SEG_9:      LDI   R18,dis_9
+            CALL  DOTROUTINE
             OUT   PORTB,R18
             RJMP  START
 
@@ -149,3 +162,17 @@ BTN_ADD:    LDI   R20,0x00
 
 BTN_SUB:    LDI   R20,0xFF
             RJMP  CHECKOP
+
+DOTROUTINE: PUSH  R20
+            PUSH  R21
+
+            MOV   R21,R20
+            ANDI  R20,dis_dot_neg
+            COM   R18
+            OR    R18,R20
+            COM   R18
+            MOV   R20,R21
+
+            POP   R20
+            POP   R21
+            RET   
