@@ -161,7 +161,6 @@ SEG_E:      LDI   R18,dis_error
 
 SEG_MINUS:  LDI   R18,dis_minus_dot
             OUT   PORTB,R18
-            CLN
             RJMP  START
 
 ; bitwise display on segment display
