@@ -16,6 +16,7 @@
 .SET  dis_error = 0b10001100
 .SET  dis_off   = 0b11111111
 .SET  dis_on    = 0b00000000
+.SET  dis_minus = 0b11011111
 
 .SET  dis_dot   = 0b01111111
 .SET  dis_dot_neg = 0b10000000
@@ -85,6 +86,9 @@ CHECKSUM:   CPI   R16,0x1               ; Check if sum is 1
             BREQ  SEG_8
             CPI   R16,0x9               ; Check if sum is 9
             BREQ  SEG_9
+            CPI   R16,0x0
+            BREQ  SEG_0
+            BRBS  2,SEG_MINUS
             CPI   R16,0xa               ; Check if sum is greater than 9
             BRGE  SEG_E
   
@@ -152,6 +156,12 @@ SEG_9:      LDI   R18,dis_9
 SEG_E:      LDI   R18,dis_error
             CALL  DOTROUTINE
             OUT   PORTB,R18
+            RJMP  START
+
+SEG_MINUS:  LDI   R18,dis_minus
+            CALL  DOTROUTINE
+            OUT   PORTB,R18
+            CLN
             RJMP  START
 
 ; bitwise display on segment display
