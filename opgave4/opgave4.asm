@@ -17,6 +17,7 @@
 .SET  dis_off   = 0b11111111
 .SET  dis_on    = 0b00000000
 .SET  dis_minus = 0b11011111
+.SET  dis_minus_dot = 0b01011111
 
 .SET  dis_dot   = 0b01111111
 .SET  dis_dot_neg = 0b10000000
@@ -158,8 +159,7 @@ SEG_E:      LDI   R18,dis_error
             OUT   PORTB,R18
             RJMP  START
 
-SEG_MINUS:  LDI   R18,dis_minus
-            CALL  DOTROUTINE
+SEG_MINUS:  LDI   R18,dis_minus_dot
             OUT   PORTB,R18
             CLN
             RJMP  START
